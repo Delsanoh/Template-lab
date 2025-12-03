@@ -1,7 +1,6 @@
 ﻿#include "pch.h"
 
 #define _CRT_SECURE_NO_WARNINGS
-#include <gtest/gtest.h>
 #include "../Лаба 5/binary_counter.cpp"
 #include <fstream>
 #include <string>
