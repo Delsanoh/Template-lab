@@ -18,9 +18,9 @@ bool CheckInputFile(std::ifstream& fin)
     return true;
 }
 
-int countBinaryOnesStr(const char* str)
+int32_t countBinaryOnesStr(const char* str)
 {
-    int count = 0;
+    int32_t count = 0;
     for (size_t i = 0; str[i] != '\0'; i++)
     {
         unsigned char c = str[i];
@@ -40,10 +40,10 @@ std::vector<char*> findMinOnesElementsStr(const std::vector<char*>& array)
         return {};
     }
     std::vector<char*> result = { array[0] };
-    int minOnes = countBinaryOnesStr(array[0]);
+    int32_t minOnes = countBinaryOnesStr(array[0]);
     for (size_t i = 1; i < array.size(); i++)
     {
-        int ones = countBinaryOnesStr(array[i]);
+        int32_t ones = countBinaryOnesStr(array[i]);
         if (ones < minOnes)
         {
             minOnes = ones;

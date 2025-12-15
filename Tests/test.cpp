@@ -20,8 +20,8 @@ TEST(BinaryCounterTest, CountBinaryOnesDouble)
     double zero = 0.0;
     double one = 1.0;
 
-    int onesZero = countBinaryOnes(zero);
-    int onesOne = countBinaryOnes(one);
+    int32_t onesZero = countBinaryOnes(zero);
+    int32_t onesOne = countBinaryOnes(one);
 
     EXPECT_GE(onesZero, 0);
     EXPECT_GE(onesOne, 0);
@@ -32,7 +32,7 @@ TEST(BinaryCounterTest, CountBinaryOnesDouble)
 
 TEST(BinaryCounterTest, FindMinOnesElementsInt)
 {
-    std::vector<int> arr1 = { 1, 2, 3, 4, 5 };
+    std::vector<int32_t> arr1 = { 1, 2, 3, 4, 5 };
     auto res1 = findMinOnesElements(arr1);
 
     EXPECT_EQ(res1.size(), 3);
@@ -40,13 +40,13 @@ TEST(BinaryCounterTest, FindMinOnesElementsInt)
     EXPECT_EQ(res1[1], 2);
     EXPECT_EQ(res1[2], 4);
 
-    std::vector<int> arr2 = { 0, 255, 127 };
+    std::vector<int32_t> arr2 = { 0, 255, 127 };
     auto res2 = findMinOnesElements(arr2);
 
     EXPECT_EQ(res2.size(), 1);
     EXPECT_EQ(res2[0], 0);
 
-    std::vector<int> arr3 = { 3, 5, 6 };
+    std::vector<int32_t> arr3 = { 3, 5, 6 };
     auto res3 = findMinOnesElements(arr3);
     EXPECT_EQ(res3.size(), 3);
 }
@@ -142,8 +142,8 @@ TEST(BinaryCounterTest, CheckInputFile)
 
 TEST(BinaryCounterTest, WriteToFileTemplate)
 {
-    std::vector<int> arr = { 1, 2, 3 };
-    std::vector<int> res = { 1, 2 };
+    std::vector<int32_t> arr = { 1, 2, 3 };
+    std::vector<int32_t> res = { 1, 2 };
 
     std::remove("test_output.txt");
 
@@ -232,7 +232,7 @@ TEST(BinaryCounterTest, FreeStringArray)
 {
     std::vector<char*> arr;
 
-    for (int i = 0; i < 5; i++)
+    for (int32_t i = 0; i < 5; i++)
     {
         char* str = new char[10];
         sprintf(str, "test%d", i);
@@ -249,7 +249,7 @@ TEST(BinaryCounterTest, FreeStringArray)
 
 TEST(BinaryCounterTest, EmptyArray)
 {
-    std::vector<int> emptyArr;
+    std::vector<int32_t> emptyArr;
     auto res = findMinOnesElements(emptyArr);
 
     EXPECT_TRUE(res.empty());
@@ -258,7 +258,7 @@ TEST(BinaryCounterTest, EmptyArray)
 
 TEST(BinaryCounterTest, SingleElement)
 {
-    std::vector<int> arr = { 42 };
+    std::vector<int32_t> arr = { 42 };
     auto res = findMinOnesElements(arr);
 
     EXPECT_EQ(res.size(), 1);
@@ -267,7 +267,7 @@ TEST(BinaryCounterTest, SingleElement)
 
 TEST(BinaryCounterTest, AllSameElements)
 {
-    std::vector<int> arr = { 7, 7, 7, 7 };
+    std::vector<int32_t> arr = { 7, 7, 7, 7 };
     auto res = findMinOnesElements(arr);
 
     EXPECT_EQ(res.size(), 4);
@@ -279,7 +279,7 @@ TEST(BinaryCounterTest, AllSameElements)
 
 TEST(BinaryCounterTest, IntegrationTestInt)
 {
-    std::vector<int> arr = { 0, 1, 2, 3, 4, 5 };
+    std::vector<int32_t> arr = { 0, 1, 2, 3, 4, 5 };
 
     auto res = findMinOnesElements(arr);
 
@@ -290,11 +290,11 @@ TEST(BinaryCounterTest, IntegrationTestInt)
 
 TEST(BinaryCounterTest, BoundaryValues)
 {
-    int maxInt = 2147483647;
-    int minInt = -2147483648;
+    int32_t maxInt = 2147483647;
+    int32_t minInt = -2147483648;
 
-    int onesMax = countBinaryOnes(maxInt);
-    int onesMin = countBinaryOnes(minInt);
+    int32_t onesMax = countBinaryOnes(maxInt);
+    int32_t onesMin = countBinaryOnes(minInt);
 
     EXPECT_GE(onesMax, 0);
     EXPECT_LE(onesMax, 32);
